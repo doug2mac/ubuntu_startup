@@ -32,6 +32,9 @@ conda update anaconda
 conda install -c conda-forge jupyterlab
 
 # install jupyter lab extension
+## Pre-requisite of nodejs ##
+conda install -c conda-forge nodejs
+
 
 # vim
 jupyter labextension install jupyterlab_vim
