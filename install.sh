@@ -4,6 +4,14 @@ sudo apt-get install git-core
 # install vim
 sudo apt install vim
 
+# install chrome
+cd /tmp
+
+# get latest stable build
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# unpack build
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
 # install sublime text 3
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
