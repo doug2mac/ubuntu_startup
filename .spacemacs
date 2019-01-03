@@ -322,15 +322,12 @@ values."
    ))
 
 (defun dotspacemacs/user-init ()
-  "Initialization function for user code.
-It is called immediately after `dotspacemacs/init', before layer configuration
-executes.
- This function is mostly useful for variables that need to be set
-before packages are loaded. If you are unsure, you should try in setting them in
-`dotspacemacs/user-config' first."
-   (define-derived-mode anaconda-view-mode special-mode "Anaconda-View")
-   (add-to-list 'python-shell-extra-pythonpaths "/home/dougmaclp/anaconda3/bin/python")
-
+;  "Initialization function for user code.
+;It is called immediately after `dotspacemacs/init', before layer configuration
+;executes.
+; This function is mostly useful for variables that need to be set
+;before packages are loaded. If you are unsure, you should try in setting them in
+;`dotspacemacs/user-config' first."
    ;; This should be a fix to org-mode execution blocks added on 8/21/2018
    (require `ob-python)
 
@@ -345,9 +342,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
    (defun org-line-wrap ()
      (spacemacs/toggle-visual-line-navigation-on)
      (setq-local word-wrap nil))
-
-   (add-hook 'org-mode-hook 'org-line-wrap)
-  )
+     (add-hook 'org-mode-hook 'org-line-wrap)
+   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -359,8 +355,8 @@ you should place your code here."
 
 
 ;; fix for Anaconda Mode
-(eval-after-load "company"
-	'(add-to-list 'company-backend 'company-anaconda))
+;(eval-after-load "company"
+;	'(add-to-list 'company-backend 'company-anaconda))
 
 ;; Make my own org mode template
 (add-to-list 'org-structure-template-alist
@@ -374,13 +370,6 @@ you should place your code here."
           (lambda ()
             (ess-toggle-underscore nil)))
 
-
-;; custom org capture template
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "/mnt/c/Users/DougMacDonald/OneDrive - MSCHE/_Profile/Desktop/Syncthing/Dropbox/org/todo.org" "Tasks")
-         "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+olp+datetree "/mnt/c/Users/DougMacDonald/OneDrive - MSCHE/_Profile/Desktop/Syncthing/Dropbox/org/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")))
 
 ;; END OF CUSTOM CODE
  )
