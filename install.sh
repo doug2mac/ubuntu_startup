@@ -52,10 +52,14 @@ rm rstudio-1.0.44-amd64.deb
 # download and install emacs + spacemacs
 
 # download and install emacs
-cd
-sudo apt-get install emacs
-mv .emacs .emacs.old
-mv .emacs.d .emacs.d.old
+sudo add-apt-repository ppa:kelleyk/emacs
+
+sudo apt update
+
+sudo apt install emacs25
+
+# if needed to remove
+# sudo apt remove emacs25 emacs25-nox && sudo apt autoremove
 
 # clone spacemacs into .emacs.d
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
