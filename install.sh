@@ -59,4 +59,8 @@ mv .emacs.d .emacs.d.old
 # clone spacemacs into .emacs.d
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
+# version the old .spacemacs file
+mv .spacemacs .spacemacs.bak
+
 # pull my .spacemacs config file
+wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
