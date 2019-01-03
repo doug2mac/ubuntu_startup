@@ -1,3 +1,6 @@
+# install git
+sudo apt-get install git-core
+
 # install vim
 sudo apt install vim
 
@@ -84,4 +87,4 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 mv .spacemacs .spacemacs.bak
 
 # pull my .spacemacs config file
-wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
+# wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
