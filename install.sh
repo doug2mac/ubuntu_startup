@@ -47,3 +47,16 @@ sudo apt-get install gdebi-core
 wget https://download1.rstudio.org/rstudio-1.0.44-amd64.deb
 sudo gdebi rstudio-1.0.44-amd64.deb
 rm rstudio-1.0.44-amd64.deb
+
+# download and install emacs + spacemacs
+
+# download and install emacs
+cd
+sudo apt-get install emacs
+mv .emacs .emacs.old
+mv .emacs.d .emacs.d.old
+
+# clone spacemacs into .emacs.d
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+# pull my .spacemacs config file
