@@ -1,6 +1,9 @@
 # install git
 sudo apt-get install git-core
 
+# install curl
+sudo apt-get install curl
+
 # install vim
 sudo apt install vim
 
