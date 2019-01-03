@@ -31,6 +31,19 @@ conda update anaconda
 # install jupyterlab
 conda install -c conda-forge jupyterlab
 
+# install jupyter lab extension
+
+# vim
+jupyter labextension install jupyterlab_vim
+
+# git
+jupyter labextension install @jupyterlab/git
+pip install jupyterlab-git
+jupyter serverextension enable --py jupyterlab_git
+
+# toc
+jupyter labextension install @jupyterlab/toc
+
 # Install R + RStudio on Ubuntu 16.04
 sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys E084DAB9
 
