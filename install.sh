@@ -1,3 +1,6 @@
+# install vim
+sudo apt install vim
+
 # install sublime text 3
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 
@@ -6,8 +9,6 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get update
 
 sudo apt-get install sublime-text
-
-
 
 # install anaconda
 cd /tmp
