@@ -100,3 +100,17 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # pull my .spacemacs config file
 cd ~
 wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
+
+# install mssql tools
+sudo su
+
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+# add microsoft repo
+sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/prod.list)"
+
+# exit super user mode
+exit
+
+sudo apt-get update
+sudo apt-get install mssql-tools
