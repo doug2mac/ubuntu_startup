@@ -81,18 +81,33 @@ sudo apt-get update
 sudo apt-get install r-base
 sudo apt-get install r-base-dev
 
+# install some key R-packages
+sudo -i R
+install.packages("devtools")
+install.packages(c('shiny', 'rmarkdown', 'tidyverse'))
+install.packages(c('sf', 'leaflet'))
+install.packages(c('feather','kableExtra','plotly'))
+install.packages(c('huxtable','flexdashboard','scales','RCurl'))
+q()
+
+# Download and install rstudio-server
+sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/rstudio-server-1.1.419-amd64.deb
+sudo gdebi rstudio-server-1.1.419-amd64.deb
+
 # Download and Install RStudio
 sudo apt-get install gdebi-core
 wget https://download1.rstudio.org/rstudio-1.0.44-amd64.deb
 sudo gdebi rstudio-1.0.44-amd64.deb
 rm rstudio-1.0.44-amd64.deb
 
-# install some key R-packages
-sudo -i R
-install.packages("devtools")
-install.packages(c('shiny', 'rmarkdown', 'tidyverse'))
-install.packages(c('sf', 'leaflet'))
-q()
+# add the user 'research' to the VM for rstudio
+sudo adduser research
+
+# install shiny server
+sudo apt-get install gdebi-core
+wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb
+sudo gdebi shiny-server-1.5.5.872-amd64.deb
 
 # download and install emacs + spacemacs
 
