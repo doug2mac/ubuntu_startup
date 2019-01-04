@@ -1,3 +1,11 @@
+# ensure that our ubuntu instance is up to date
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo apt-get -y update && sudo apt-get -y upgrade
+
 # install git
 sudo apt-get install git-core
 
