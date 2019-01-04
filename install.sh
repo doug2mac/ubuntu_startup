@@ -87,6 +87,13 @@ wget https://download1.rstudio.org/rstudio-1.0.44-amd64.deb
 sudo gdebi rstudio-1.0.44-amd64.deb
 rm rstudio-1.0.44-amd64.deb
 
+# install some key R-packages
+sudo -i R
+install.packages("devtools")
+install.packages(c('shiny', 'rmarkdown', 'tidyverse'))
+install.packages(c('sf', 'leaflet'))
+q()
+
 # download and install emacs + spacemacs
 
 # download and install emacs
