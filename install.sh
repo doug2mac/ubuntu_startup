@@ -109,6 +109,9 @@ sudo apt-get install gdebi-core
 wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb
 sudo gdebi shiny-server-1.5.5.872-amd64.deb
 
+# set full edit permissions for the folder containing shiny-servers
+sudo chmod 777 -R /srv/shiny-server
+
 # download and install emacs + spacemacs
 
 # download and install emacs
