@@ -88,6 +88,7 @@ install.packages(c('shiny', 'rmarkdown', 'tidyverse'))
 install.packages(c('sf', 'leaflet'))
 install.packages(c('feather','kableExtra','plotly'))
 install.packages(c('huxtable','flexdashboard','scales','RCurl'))
+install.packages(c('haven','qualtRics'))
 q()
 
 # Download and install rstudio-server
