@@ -13,7 +13,7 @@ Ubuntu 16.04.5 LTS
 * Vim
 * Chrome
 * Anaconda
-** Jupyter Lab
+  - Jupyter Lab
 * VSCode
 * Sublime Text 3
 * R
@@ -22,4 +22,4 @@ Ubuntu 16.04.5 LTS
 * Shiny-Server
 * Microsoft Sql Server Tools
 * Emacs
-** Spacemacs config
+  - Spacemacs config
