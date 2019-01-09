@@ -126,6 +126,9 @@ sudo apt install emacs25
 # if needed to remove
 # sudo apt remove emacs25 emacs25-nox && sudo apt autoremove
 
+# remove the included version of org-mode in spacemacs since it breaks spacemacs
+sudo rm -rf /usr/share/emacs/25.3/lisp/org/*
+
 # clone spacemacs into .emacs.d
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
