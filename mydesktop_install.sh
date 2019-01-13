@@ -1,14 +1,14 @@
 # ensure that our ubuntu instance is up to date
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get -y update
+sudo apt-get -y upgrade
 
 # install terminator
 sudo add-apt-repository ppa:gnome-terminator
-sudo apt-get update
-sudo apt-get install terminator
+sudo apt-get -y update
+sudo apt-get -y install terminator
 
 # install htop
-sudo apt-get install htop
+sudo apt-get -y install htop
 
 # install the latest r sources
 sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
@@ -17,13 +17,13 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 
 # install git
-sudo apt-get install git-core
+sudo apt-get -y install git-core
 
 # install curl
-sudo apt-get install curl
+sudo apt-get -y install curl
 
 # install vim
-sudo apt install vim
+sudo apt-get -y install vim
 
 # install chrome
 cd /tmp
@@ -38,9 +38,9 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add
 
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
-sudo apt-get update
+sudo apt-get -y update
 
-sudo apt-get install sublime-text
+sudo apt-get -y install sublime-text
 
 # install anaconda
 cd /tmp
@@ -87,19 +87,13 @@ sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys E084DAB9
 # Ubuntu 16.04: xenial
 # Basic format of next line deb https://<my.favorite.cran.mirror>/bin/linux/ubuntu <enter your ubuntu version>/
 sudo add-apt-repository 'deb https://ftp.ussg.iu.edu/CRAN/bin/linux/ubuntu xenial/'
-sudo apt-get update
-sudo apt-get install r-base
-sudo apt-get install r-base-dev
+sudo apt-get -y update
+sudo apt-get -y install r-base
+sudo apt-get -y install r-base-dev
 
 # install some key R-packages
-sudo -i R
-install.packages("devtools")
-install.packages(c('shiny', 'rmarkdown', 'tidyverse'))
-install.packages(c('sf', 'leaflet'))
-install.packages(c('feather','kableExtra','plotly'))
-install.packages(c('huxtable','flexdashboard','scales','RCurl'))
-install.packages(c('haven','qualtRics'))
-q()
+wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/rpackages.R
+sudo Rscript packages.R
 
 # Download and install rstudio-server
 sudo apt-get install gdebi-core
@@ -107,16 +101,13 @@ wget https://download2.rstudio.org/rstudio-server-1.1.419-amd64.deb
 sudo gdebi rstudio-server-1.1.419-amd64.deb
 
 # Download and Install RStudio
-sudo apt-get install gdebi-core
+sudo apt-get -y install gdebi-core
 wget https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb
 sudo gdebi rstudio-xenial-1.1.463-amd64.deb
 rm rstudio-xenial-1.1.463-amd64.deb
 
-# add the user 'research' to the VM for rstudio
-sudo adduser research
-
 # install shiny server
-sudo apt-get install gdebi-core
+sudo apt-get -y install gdebi-core
 wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb
 sudo gdebi shiny-server-1.5.5.872-amd64.deb
 
@@ -130,7 +121,7 @@ sudo add-apt-repository ppa:kelleyk/emacs
 
 sudo apt update
 
-sudo apt install emacs25
+sudo apt-get -y install emacs25
 
 # if needed to remove
 # sudo apt remove emacs25 emacs25-nox && sudo apt autoremove
@@ -159,8 +150,8 @@ sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubunt
 # exit super user mode
 exit
 
-sudo apt-get update
-sudo apt-get install mssql-tools
+sudo apt-get -y update
+sudo apt-get -y install mssql-tools
 
 # install pdf-latex
 sudo apt-get install texlive-latex-base
