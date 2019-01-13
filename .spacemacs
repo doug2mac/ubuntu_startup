@@ -78,9 +78,6 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
    ;; A list of packages that cannot be updated.
-   ;; Commenting out JEDI since package is not found
-   ;;	(jedi: location elpa)
-   ;;	
 	)
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -352,11 +349,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-
-
-;; fix for Anaconda Mode
-;(eval-after-load "company"
-;	'(add-to-list 'company-backend 'company-anaconda))
 
 ;; Make my own org mode template
 (add-to-list 'org-structure-template-alist
