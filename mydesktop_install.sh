@@ -93,7 +93,7 @@ sudo apt-get -y install r-base-dev
 
 # install some key R-packages
 wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/rpackages.R
-sudo Rscript packages.R
+sudo Rscript rpackages.R
 
 # Download and install rstudio-server
 sudo apt-get install gdebi-core
