@@ -4,10 +4,10 @@ sudo apt-get -y upgrade
 
 # grab my own .bashrc filepath shortcuts
 ## DOUG's CUSTOM CODE ##
-echo "alias proj_remote='cd /media/sf_MSCHE/Shared\ -\ Research/Projects'"
-echo "alias org='cd /media/sf_Desktop/Syncthing/Dropbox/org'"
-echo "alias jn='jupyter-lab .  --no-browser'"
-echo "alias home='cd /media/sf_Desktop'"
+echo "alias proj_remote='cd /media/sf_MSCHE/Shared\ -\ Research/Projects'" >> ~/.bashrc
+echo "alias org='cd /media/sf_Desktop/Syncthing/Dropbox/org'" >> ~/.bashrc
+echo "alias jn='jupyter-lab .  --no-browser'" >> ~/.bashrc
+echo "alias home='cd /media/sf_Desktop'" >> ~/.bashrc
 
 # install terminator
 sudo add-apt-repository ppa:gnome-terminator
