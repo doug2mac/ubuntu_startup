@@ -13,11 +13,6 @@
 sudo apt-get update
 sudo apt-get upgrade
 
-# install our new terminal terminator
-sudo add-apt-repository ppa:gnome-terminator
-sudo apt-get update
-sudo apt-get install terminator
-
 # install git
 sudo apt-get install git-core
 
