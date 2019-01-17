@@ -132,6 +132,10 @@ sudo rm -rf /usr/share/emacs/25.3/lisp/org/*
 # clone spacemacs into .emacs.d
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
+# use the develop branch instead of the master branch
+cd ~/.emacs.d
+git checkout -b develop origin/develop
+
 # version the old .spacemacs file
 # mv .spacemacs .spacemacs.bak
 
