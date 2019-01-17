@@ -2,9 +2,8 @@
 # the framework is several docker containers for various applications
 # with some key editing software for troubleshooting
 ## Editing Software ##
-# 1. Sublime Text 3
-# 2. Emacs (with Spacemacs config)
-# 3. Vim
+# 1. Vim
+# 2. Emacs + Spacemacs
 ## Applications ##
 # 1. Jupyter Lab
 # 2. Rstudio-Server
@@ -28,23 +27,6 @@ sudo apt-get install curl
 # install vim
 sudo apt install vim
 
-# install chrome
-cd /tmp
-
-# get latest stable build
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# unpack build
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-
-# install sublime text 3
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-
-sudo apt-get update
-
-sudo apt-get install sublime-text
-
 # download and install emacs
 sudo add-apt-repository ppa:kelleyk/emacs
 
@@ -58,12 +40,15 @@ sudo rm -rf /usr/share/emacs/25.3/lisp/org/*
 # clone spacemacs into .emacs.d
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-# version the old .spacemacs file
-# mv .spacemacs .spacemacs.bak
+# remove the included version of org-mode in spacemacs since it breaks spacemacs
+sudo rm -rf /usr/share/emacs/25.3/lisp/org/*
 
-# pull my .spacemacs config file
-cd ~
-wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
+# clone spacemacs into .emacs.d
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+# use the develop branch instead of the master branch
+cd ~/.emacs.d
+git checkout -b develop origin/develop
 
 ### DOCKER ###
 # install pre-requisites
