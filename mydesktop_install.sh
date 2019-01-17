@@ -1,3 +1,6 @@
+### BE SURE TO INSTALL VIRTUAL BOX GEST ADDITIONS FIRST ###
+sudo adduser dougmac vboxsf
+
 # ensure that our ubuntu instance is up to date
 sudo apt-get -y update
 sudo apt-get -y upgrade
