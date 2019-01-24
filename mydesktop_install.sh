@@ -11,6 +11,7 @@ echo "alias proj_remote='cd /media/sf_MSCHE/Shared\ -\ Research/Projects'" >> ~/
 echo "alias org='cd /media/sf_Desktop/Syncthing/Dropbox/org'" >> ~/.bashrc
 echo "alias jn='jupyter-lab .  --no-browser'" >> ~/.bashrc
 echo "alias home='cd /media/sf_Desktop'" >> ~/.bashrc
+wxho "alias class='cd /media/sf_Desktop/Syncthing/Courses/UPenn'" >> ~/.bashrc
 
 # install terminator
 sudo add-apt-repository ppa:gnome-terminator
