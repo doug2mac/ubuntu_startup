@@ -92,14 +92,12 @@ jupyter labextension install @jupyterlab/toc
 # Install R + RStudio on Ubuntu 16.04
 sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys E084DAB9
 
-# Ubuntu 12.04: precise
-# Ubuntu 14.04: trusty
-# Ubuntu 16.04: xenial
-# Basic format of next line deb https://<my.favorite.cran.mirror>/bin/linux/ubuntu <enter your ubuntu version>/
-sudo add-apt-repository 'deb https://ftp.ussg.iu.edu/CRAN/bin/linux/ubuntu xenial/'
-sudo apt-get -y update
-sudo apt-get -y install r-base
-sudo apt-get -y install r-base-dev
+# add the needed repository
+sudo add-apt-repository ppa:marutter/rrutter3.5
+sudo apt-get install -y r-base
+sudo apt-get install -y gdebi-core
+wget https://download2.rstudio.org/rstudio-server-1.1.453-amd64.deb
+sudo gdebi rstudio-server-1.1.453-amd64.deb
 
 # install some key R-packages
 wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/rpackages.R
