@@ -13,19 +13,8 @@ echo "alias jn='jupyter-lab .  --no-browser'" >> ~/.bashrc
 echo "alias home='cd /media/sf_Desktop'" >> ~/.bashrc
 wxho "alias class='cd /media/sf_Desktop/Syncthing/Courses/UPenn'" >> ~/.bashrc
 
-# install terminator
-sudo add-apt-repository ppa:gnome-terminator
-sudo apt-get -y update
-sudo apt-get -y install terminator
-
 # install htop
 sudo apt-get -y install htop
-
-# install the latest r sources
-sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-sudo apt-get -y update
-sudo apt-get -y upgrade
 
 # install git
 sudo apt-get -y install git-core
@@ -41,6 +30,7 @@ cd /tmp
 
 # get latest stable build
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
 # unpack build
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
@@ -89,9 +79,6 @@ jupyter serverextension enable --py jupyterlab_git
 
 # toc
 jupyter labextension install @jupyterlab/toc
-
-# Install R + RStudio on Ubuntu 16.04
-sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys E084DAB9
 
 # add the needed repository
 sudo add-apt-repository ppa:marutter/rrutter3.5
