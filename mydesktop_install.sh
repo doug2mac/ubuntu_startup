@@ -94,25 +94,15 @@ sudo apt-get install -y gdebi-core
 wget https://download2.rstudio.org/rstudio-server-1.1.453-amd64.deb
 sudo gdebi rstudio-server-1.1.453-amd64.deb
 
-# install some key R-packages
-wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/rpackages.R
-sudo Rscript rpackages.R
-
-# Download and install rstudio-server
-sudo apt-get install gdebi-core
-wget https://download2.rstudio.org/rstudio-server-1.1.419-amd64.deb
-sudo gdebi rstudio-server-1.1.419-amd64.deb
-
 # Download and Install RStudio
 sudo apt-get -y install gdebi-core
 wget https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb
 sudo gdebi rstudio-xenial-1.1.463-amd64.deb
 rm rstudio-xenial-1.1.463-amd64.deb
 
-# install shiny server
-sudo apt-get -y install gdebi-core
-wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb
-sudo gdebi shiny-server-1.5.5.872-amd64.deb
+# install some key R-packages
+wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/rpackages.R
+sudo Rscript rpackages.R
 
 # set full edit permissions for the folder containing shiny-servers
 sudo chmod 777 -R /srv/shiny-server
