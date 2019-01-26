@@ -464,7 +464,7 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; set location of reveal.js file
-  (setq Org-Reveal-root "file:///path-to-reveal.js")
+  (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
   ;; fix for org-mode
   (org-defkey org-mode-map [(meta return)] 'org-meta-return)
   )
