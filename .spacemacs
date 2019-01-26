@@ -47,7 +47,9 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      neotree
-     org
+     (org :variables
+        org-enable-github-support t
+        org-enable-reveal-js-support t)
      (shell :variables
         shell-default-height 30
         shell-default-position 'bottom)
@@ -461,6 +463,10 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; set location of reveal.js file
+  (setq Org-Reveal-root "file:///path-to-reveal.js")
+  ;; fix for org-mode
+  (org-defkey org-mode-map [(meta return)] 'org-meta-return)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
