@@ -5,9 +5,7 @@
 # sudo apt-get install build-essential gcc make perl dkms
 # reboot
 # insert guest additions cd
-
-
-
+# run the software
 
 ### BE SURE TO INSTALL VIRTUAL BOX GEST ADDITIONS FIRST ###
 sudo adduser dougmac vboxsf
