@@ -139,6 +139,6 @@ cd ~
 wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
 
 # install pdf-latex
-sudo apt-get install texlive-latex-base
-sudo apt-get install texlive-fonts-recommended
-sudo apt-get install texlive-fonts-extra
+sudo apt-get -y install texlive-latex-base
+sudo apt-get -y install texlive-fonts-recommended
+sudo apt-get -y install texlive-fonts-extra
