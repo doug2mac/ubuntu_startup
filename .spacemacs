@@ -62,6 +62,7 @@ This function should only modify configuration layer settings."
      sql
      pdf
      speed-reading
+     html
      )
 
    ;; List of additional packages that will be installed without being
