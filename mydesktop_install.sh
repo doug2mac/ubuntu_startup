@@ -53,8 +53,6 @@ sudo apt-get -y update
 sudo apt-get -y install sublime-text
 
 # install anaconda
-cd /tmp
-
 # grab the install script
 curl -O https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh
 
