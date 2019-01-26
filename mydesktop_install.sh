@@ -75,7 +75,6 @@ conda install -c conda-forge jupyterlab
 ## Pre-requisite of nodejs ##
 conda install -c conda-forge nodejs
 
-
 # vim
 jupyter labextension install jupyterlab_vim
 
@@ -95,10 +94,13 @@ wget https://download2.rstudio.org/rstudio-server-1.1.453-amd64.deb
 sudo gdebi rstudio-server-1.1.453-amd64.deb
 
 # Download and Install RStudio
-sudo apt-get -y install gdebi-core
 wget https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb
 sudo gdebi rstudio-xenial-1.1.463-amd64.deb
 rm rstudio-xenial-1.1.463-amd64.deb
+
+# install some dependencies for devtools
+apt-get -y build-dep libcurl4-gnutls-dev
+apt-get -y install libcurl4-gnutls-dev
 
 # install some key R-packages
 wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/rpackages.R
@@ -136,24 +138,7 @@ git checkout -b develop origin/develop
 cd ~
 wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
 
-# install mssql tools
-sudo su
-
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-
-# add microsoft repo
-sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/prod.list)"
-
-# exit super user mode
-exit
-
-sudo apt-get -y update
-sudo apt-get -y install mssql-tools
-
 # install pdf-latex
 sudo apt-get install texlive-latex-base
 sudo apt-get install texlive-fonts-recommended
 sudo apt-get install texlive-fonts-extra
-sudo apt-get install texlive-latex-extra
-
-
