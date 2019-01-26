@@ -1,3 +1,14 @@
+# This is a configuration file for Ubuntu 18.04 on Virtualbox #
+# resolution = 1920 x 1440
+# update packages to install guest additions
+# sudo apt-get update
+# sudo apt-get install build-essential gcc make perl dkms
+# reboot
+# insert guest additions cd
+
+
+
+
 ### BE SURE TO INSTALL VIRTUAL BOX GEST ADDITIONS FIRST ###
 sudo adduser dougmac vboxsf
 
