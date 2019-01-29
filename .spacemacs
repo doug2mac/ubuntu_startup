@@ -470,6 +470,23 @@ before packages are loaded."
   (org-defkey org-mode-map [(meta return)] 'org-meta-return)
   )
 
+    ;; use the magrittr pipe for r-ess mode
+  (defun then_R_operator ()
+    "use the %>% pipe operator"
+    (interactive)
+    (just-one-space 1)
+    (insert "%>%")
+    (reindent-then-newline-and-indent)
+    )
+
+  (define-key ess-mode-map
+    (kbd "C-c m") ;;keybinding
+    'then_R_operator) ;;action
+  (define-key inferior-ess-mode-map
+    (kbd "C-c m") ;;keybinding
+    'then_R_operator) ;;action
+
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
