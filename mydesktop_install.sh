@@ -22,17 +22,13 @@ echo "alias jn='jupyter-lab .  --no-browser'" >> ~/.bashrc
 echo "alias home='cd /media/sf_Desktop'" >> ~/.bashrc
 echo "alias class='cd /media/sf_Desktop/Syncthing/Courses/UPenn'" >> ~/.bashrc
 
-# install htop
 sudo apt-get -y install htop
-
-# install git
 sudo apt-get -y install git-core
-
-# install curl
 sudo apt-get -y install curl
-
-# install vim
 sudo apt-get -y install vim
+sudo apt-get -y install dvipng
+sudo apt-get -y install markdown
+sudo apt-get -y install pandoc
 
 # install chrome
 cd /tmp
