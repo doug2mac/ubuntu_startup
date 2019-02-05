@@ -470,42 +470,43 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (with-eval-after-load 'org
+      ;; set location of reveal.js file
+      (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
   
-  ;; set location of reveal.js file
-  (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
+      ;; fix for org-mode
+      (org-defkey org-mode-map [(meta return)] 'org-meta-return)
   
-  ;; fix for org-mode
-  (org-defkey org-mode-map [(meta return)] 'org-meta-return)
+      ; org-mode templates
+      (add-to-list 'org-structure-template-alist
+             '("s" "#+NAME: ?\n#+BEGIN_SRC \n\n#+END_SRC")
+             '("r" "#+BEGIN_SRC R \n\n#+END_SRC")
+      )
+
   )
-
-    ;; use the magrittr pipe for r-ess mode
-  (defun then_R_operator ()
-    "use the %>% pipe operator"
-    (interactive)
-    (just-one-space 1)
-    (insert "%>%")
-    (reindent-then-newline-and-indent)
-    )
-
-  ;;(define-key ess-mode-map
-  ;;  (kbd "C-c m") ;;keybinding
-  ;;  'then_R_operator) ;;action
-  ;;(define-key inferior-ess-mode-map
-  ;;  (kbd "C-c m") ;;keybinding
-  ;; 'then_R_operator) ;;action
   
+ (with-eval-after-load 'ess
+      ;; use the magrittr pipe for r-ess mode
+      (defun then_R_operator ()
+        "use the %>% pipe operator"
+        (interactive)
+        (just-one-space 1)
+        (insert "%>%")
+        (reindent-then-newline-and-indent)
+        )
+
+      (define-key ess-mode-map
+        (kbd "C-c m") ;;keybinding
+        'then_R_operator) ;;action
+      (define-key inferior-ess-mode-map
+        (kbd "C-c m") ;;keybinding
+       'then_R_operator) ;;action
+  )
     ;; Support for R-Markdown
     (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
     (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
     (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
     (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
-  
-  ;; org-mode templates
-  (add-to-list 'org-structure-template-alist
-             '("s" "#+NAME: ?\n#+BEGIN_SRC \n\n#+END_SRC")
-             '("r" "#+BEGIN_SRC R \n\n#+END_SRC")
-   )
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
