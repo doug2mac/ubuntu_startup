@@ -72,7 +72,13 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      ;; support for R-Markdown
+                                      polymode
+                                      poly-R
+                                      poly-noweb
+                                      poly-markdown
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -464,8 +470,10 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  
   ;; set location of reveal.js file
   (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
+  
   ;; fix for org-mode
   (org-defkey org-mode-map [(meta return)] 'org-meta-return)
   )
@@ -479,12 +487,19 @@ before packages are loaded."
     (reindent-then-newline-and-indent)
     )
 
-  (define-key ess-mode-map
-    (kbd "C-c m") ;;keybinding
-    'then_R_operator) ;;action
-  (define-key inferior-ess-mode-map
-    (kbd "C-c m") ;;keybinding
-    'then_R_operator) ;;action
+  ;;(define-key ess-mode-map
+  ;;  (kbd "C-c m") ;;keybinding
+  ;;  'then_R_operator) ;;action
+  ;;(define-key inferior-ess-mode-map
+  ;;  (kbd "C-c m") ;;keybinding
+  ;; 'then_R_operator) ;;action
+  
+    ;; Support for R-Markdown
+    (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
+    (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
+    (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
+    (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+  
 
 
 ;; Do not write anything past this comment. This is where Emacs will
