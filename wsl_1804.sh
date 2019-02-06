@@ -13,12 +13,15 @@ sudo apt-get -y upgrade
 
 # grab my own .bashrc filepath shortcuts
 ## DOUG's CUSTOM CODE ##
+echo "###BEGIN DOUGS CUSTOM CODE###" >> ~/.bashrc
 echo "alias proj_remote='cd /mnt/c/Users/DougMacDonald/MSCHE/Shared\ -\ Research/Projects'" >> ~/.bashrc
 echo "alias home='cd /mnt/c/Users/DougMacDonald/OneDrive\ -\ MSCHE/_Profile/Desktop'" >> ~/.bashrc
 echo "alias org='cd /mnt/c/Users/DougMacDonald/OneDrive\ -\ MSCHE/_Profile/Desktop/Syncthing/Dropbox/org'" >> ~/.bashrc
 echo "alias dm='cd /mnt/c/Users/DougMacDonald/MSCHE/Shared\ -\ Research/Projects/Presence\ Consulting\ Group\ \(PCG\)/Data\ Migration'" >> ~/.bashrc
 echo "alias class='cd /mnt/c/Users/DougMacDonald/OneDrive\ -\ MSCHE/_Profile/Desktop/Syncthing/Courses/UPenn'" >> ~/.bashrc
 echo "alias backup='cd /mnt/i/SalesForce\ Backups'" >> ~/.bashrc
+echo "alias jn='jupyter-lab . --no-browser'" >> ~/.bashrc
+echo "export DISPLAY=localhost:0.0" >> ~/.bashrc
 
 sudo apt-get -y install htop
 sudo apt-get -y install git-core
