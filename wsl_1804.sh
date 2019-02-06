@@ -31,6 +31,7 @@ sudo apt-get -y install dvipng
 sudo apt-get -y install markdown
 sudo apt-get -y install pandoc
 sudo apt-get -y install unoconv
+sudo apt-get -y install ispell
 
 # install chrome
 cd /tmp
@@ -44,30 +45,6 @@ bash Anaconda3-2018.12-Linux-x86_64.sh
 
 # source the bashrc to be able to run conda
 source ~/.bashrc
-
-# update conda
-conda update conda
-
-# update anaconda
-conda update anaconda
-
-# install jupyterlab
-conda install -c conda-forge jupyterlab
-
-# install jupyter lab extension
-## Pre-requisite of nodejs ##
-conda install -c conda-forge nodejs
-
-# vim
-jupyter labextension install jupyterlab_vim
-
-# git
-jupyter labextension install @jupyterlab/git
-pip install jupyterlab-git
-jupyter serverextension enable --py jupyterlab_git
-
-# toc
-jupyter labextension install @jupyterlab/toc
 
 # add the needed repository
 sudo add-apt-repository ppa:marutter/rrutter3.5
@@ -124,4 +101,4 @@ wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
 # install pdf-latex
 sudo apt-get -y install texlive-latex-base
 sudo apt-get -y install texlive-fonts-recommended
-sudo apt-get -y install texlive-fonts-extra-get -y upgrade
+sudo apt-get -y install texlive-fonts-extra
