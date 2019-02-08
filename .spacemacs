@@ -63,6 +63,7 @@ This function should only modify configuration layer settings."
      pdf
      speed-reading
      html
+     javascript
      )
 
    ;; List of additional packages that will be installed without being
@@ -74,10 +75,10 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
                                       ;; support for R-Markdown
-                                      polymode
-                                      poly-R
-                                      poly-noweb
-                                      poly-markdown
+                                      ;;polymode
+                                      ;;poly-R
+                                      ;;poly-noweb
+                                      ;;poly-markdown
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -362,7 +363,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers `relative
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -475,7 +476,7 @@ before packages are loaded."
       (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
   
       ;; fix for org-mode
-      (org-defkey org-mode-map [(meta return)] 'org-meta-return)
+      ;;(org-defkey org-mode-map [(meta return)] 'org-meta-return)
   
       ; org-mode templates
       (add-to-list 'org-structure-template-alist
@@ -503,10 +504,10 @@ before packages are loaded."
        'then_R_operator) ;;action
   )
     ;; Support for R-Markdown
-    (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
-    (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
-    (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
-    (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+    ;;(add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
+    ;;(add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
+    ;;(add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
+    ;;(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
