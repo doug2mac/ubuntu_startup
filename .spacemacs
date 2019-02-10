@@ -508,6 +508,10 @@ before packages are loaded."
     ;;(add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
     ;;(add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
     ;;(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+  
+    ;; Begin in centered cursor mode
+    (global-centered-cursor-mode t)
+
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
