@@ -364,7 +364,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers `relative
+   dotspacemacs-line-numbers 'relative
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -487,23 +487,23 @@ before packages are loaded."
 
   )
   
- (with-eval-after-load 'ess
-      ;; use the magrittr pipe for r-ess mode
-      (defun then_R_operator ()
-        "use the %>% pipe operator"
-        (interactive)
-        (just-one-space 1)
-        (insert "%>%")
-        (reindent-then-newline-and-indent)
-        )
-
-      (define-key ess-mode-map
-        (kbd "C-c m") ;;keybinding
-        'then_R_operator) ;;action
-      (define-key inferior-ess-mode-map
-        (kbd "C-c m") ;;keybinding
-       'then_R_operator) ;;action
-  )
+;; (with-eval-after-load 'ess
+;     ;; use the magrittr pipe for r-ess mode
+;      (defun then_R_operator ()
+;        "use the %>% pipe operator"
+;        (interactive)
+;        (just-one-space 1)
+;        (insert "%>%")
+;        (reindent-then-newline-and-indent)
+;        )
+;
+;      (define-key ess-mode-map
+;        (kbd "C-c m") ;;keybinding
+;        'then_R_operator) ;;action
+;      (define-key inferior-ess-mode-map
+;        (kbd "C-c m") ;;keybinding
+;       'then_R_operator) ;;action
+;  )
     ;; Support for R-Markdown
     ;;(add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
     ;;(add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
