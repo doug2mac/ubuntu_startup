@@ -33,8 +33,8 @@ sudo apt-get -y install markdown
 sudo apt-get -y install pandoc
 sudo apt-get -y install unoconv
 sudo apt-get -y install ispell
-sudo apt-get -y install libxml2-dev
-sudo apt-get -y install libssl-dev
+# packages for R
+sudo apt-get -y install build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
 
 # install chrome
 cd /tmp
