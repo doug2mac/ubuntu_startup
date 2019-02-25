@@ -22,7 +22,7 @@ echo "alias class='cd /mnt/c/Users/DougMacDonald/OneDrive\ -\ MSCHE/_Profile/Des
 echo "alias backup='cd /mnt/i/SalesForce\ Backups'" >> ~/.bashrc
 echo "alias jn='jupyter-lab . --no-browser'" >> ~/.bashrc
 echo "export DISPLAY=localhost:0.0" >> ~/.bashrc
-echo "alias tasks='git grep -EIn \"TODO|FIXME\"'"
+echo "alias tasks='git grep -EIn \"TODO|FIXME\"'" >> ~/.bashrc
 
 sudo apt-get -y install htop
 sudo apt-get -y install git-core
