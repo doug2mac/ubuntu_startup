@@ -135,7 +135,7 @@ unset __conda_setup
 
 
 ## DOUG's CUSTOM CODE ##
-alias proj_remote='cd /media/sf_MSCHE/Shared_-_Research/Projects'
+alias proj_remote='cd /media/sf_Shared_-_Research/Projects'
 alias org='cd /media/sf_Desktop/Syncthing/Dropbox/org'
 alias jn='jupyter-lab .  --no-browser'
 alias home='cd /media/sf_Desktop'
