@@ -117,3 +117,7 @@ wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs
 sudo apt-get -y install texlive-latex-base
 sudo apt-get -y install texlive-fonts-recommended
 sudo apt-get -y install texlive-fonts-extra
+
+# add in a lightweight desktop environment xfce4
+sudo apt-get install xfce4
+
