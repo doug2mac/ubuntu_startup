@@ -38,7 +38,7 @@ cd /tmp
 curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 
 # run the install script
-bash Anaconda3-2018.12-Linux-x86_64.sh
+bash Anaconda3-2019.03-Linux-x86_64.sh
 
 # source the bashrc to be able to run conda
 source ~/.bashrc
@@ -74,8 +74,8 @@ sudo apt-get install -y gdebi-core
 
 # Download and Install RStudio
 wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.1335-amd64.deb
-sudo gdebi rstudio-xenial-1.1.463-amd64.deb
-rm rstudio-xenial-1.1.463-amd64.deb
+sudo gdebi rstudio-1.2.1335-amd64.deb
+rm rstudio-1.2.1335-amd64.deb
 
 # install some dependencies for devtools
 apt-get -y build-dep libcurl4-gnutls-dev
