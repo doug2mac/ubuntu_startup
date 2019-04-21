@@ -35,7 +35,7 @@ cd /tmp
 
 # install anaconda
 # grab the install script
-curl -O https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh
+curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 
 # run the install script
 bash Anaconda3-2018.12-Linux-x86_64.sh
@@ -71,11 +71,9 @@ jupyter labextension install @jupyterlab/toc
 sudo add-apt-repository ppa:marutter/rrutter3.5
 sudo apt-get install -y r-base
 sudo apt-get install -y gdebi-core
-wget https://download2.rstudio.org/rstudio-server-1.1.453-amd64.deb
-sudo gdebi rstudio-server-1.1.453-amd64.deb
 
 # Download and Install RStudio
-wget https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.1335-amd64.deb
 sudo gdebi rstudio-xenial-1.1.463-amd64.deb
 rm rstudio-xenial-1.1.463-amd64.deb
 
