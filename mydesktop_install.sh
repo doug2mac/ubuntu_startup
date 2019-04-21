@@ -117,7 +117,10 @@ sudo apt-get -y install texlive-fonts-recommended
 sudo apt-get -y install texlive-fonts-extra
 
 # install a light weight desktop xfce4
-sudo apt-get install xfce4
+sudo apt-get -y install xfce4
 
-# install firefox
-sudo apt-get install iceweasel
+# install vscode (no longer part of anaconda install)
+sudo apt -y install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt -y install code
