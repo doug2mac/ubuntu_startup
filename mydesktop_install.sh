@@ -33,21 +33,6 @@ sudo apt-get -y install pandoc
 # install chrome
 cd /tmp
 
-# get latest stable build
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-
-# unpack build
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-
-# install sublime text 3
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-
-sudo apt-get -y update
-
-sudo apt-get -y install sublime-text
-
 # install anaconda
 # grab the install script
 curl -O https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh
@@ -102,16 +87,10 @@ apt-get -y install libcurl4-gnutls-dev
 wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/rpackages.R
 sudo Rscript rpackages.R
 
-# set full edit permissions for the folder containing shiny-servers
-sudo chmod 777 -R /srv/shiny-server
-
 # download and install emacs + spacemacs
-
 # download and install emacs
 sudo add-apt-repository ppa:kelleyk/emacs
-
 sudo apt update
-
 sudo apt-get -y install emacs25
 
 # if needed to remove
