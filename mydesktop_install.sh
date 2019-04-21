@@ -118,3 +118,8 @@ sudo apt-get -y install texlive-latex-base
 sudo apt-get -y install texlive-fonts-recommended
 sudo apt-get -y install texlive-fonts-extra
 
+# install a light weight desktop xfce4
+sudo apt-get install xfce4
+
+# install firefox
+sudo apt-get install iceweasel
