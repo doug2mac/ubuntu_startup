@@ -37,6 +37,9 @@ cd /tmp
 # grab the install script
 curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 
+# if you want miniconda instead
+# curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
 # run the install script
 bash Anaconda3-2019.03-Linux-x86_64.sh
 
