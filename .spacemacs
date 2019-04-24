@@ -475,20 +475,18 @@ before packages are loaded."
   (with-eval-after-load 'org
       ;; set location of reveal.js file
       (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
-  
-      ;; fix for org-mode
-      ;;(org-defkey org-mode-map [(meta return)] 'org-meta-return)
-  
-      ; org-mode templates
-      (add-to-list 'org-structure-template-alist
-             '("s" "#+NAME: ?\n#+BEGIN_SRC \n\n#+END_SRC")
-             '("r" "#+BEGIN_SRC R \n\n#+END_SRC")
-      )
-
   )
+
   
-    ;; Begin in centered cursor mode
-    (global-centered-cursor-mode t)
+  
+;;; Use visual line mode for org documents ;;;
+(add-hook 'org-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
+
+;;; Rainbow Delimiters at Start ;;;
+(rainbow-delimiters-mode-enable t)
+
+;; Begin in centered cursor mode
+(global-centered-cursor-mode t)
   
 ;;;;;;; Tweaks for Org & org-latex ;;;;;;
 
