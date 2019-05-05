@@ -65,6 +65,7 @@ This function should only modify configuration layer settings."
      html
      javascript
      csv
+     themes-megapack
      )
 
    ;; List of additional packages that will be installed without being
@@ -75,11 +76,6 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
-                                      ;; support for R-Markdown
-                                      ;;polymode
-                                      ;;poly-R
-                                      ;;poly-noweb
-                                      ;;poly-markdown
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -477,17 +473,15 @@ before packages are loaded."
       (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
   )
 
-  
-  
-;;; Use visual line mode for org documents ;;;
+;;; Use visual lines for orgmode ;;;
 (add-hook 'org-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
 
 ;;; Rainbow Delimiters at Start ;;;
-(rainbow-delimiters-mode-enable t)
+(rainbow-delimiters-mode 1)
 
 ;; Begin in centered cursor mode
 (global-centered-cursor-mode t)
-  
+
 ;;;;;;; Tweaks for Org & org-latex ;;;;;;
 
 (defvar cw/org-last-fragment nil
@@ -497,7 +491,8 @@ before packages are loaded."
 (setq cw/org-valid-fragment-type
       '(latex-fragment
         latex-environment
-        link))
+        link)
+      )
 
 (defun cw/org-curr-fragment ()
   "Returns the type and position of the current fragment available for preview inside org-mode. Returns nil at non-displayable fragments"
@@ -526,7 +521,8 @@ before packages are loaded."
           ((eq 'link fr-type)
            nil;; delete image overlay here?
            ))
-    ))
+    )
+  )
 
 (defun cw/org-preview-fragment (fr)
   "Preview org fragment at fr"
@@ -541,7 +537,8 @@ before packages are loaded."
           ((eq 'link fr-type) ;; for images
            (let ((fr-end (org-element-property :end (org-element-context))))
              (org-display-inline-images nil t fr-begin fr-end))))
-    ))
+    )
+  )
 
 
 (defun cw/org-auto-toggle-fragment-display ()
@@ -549,40 +546,26 @@ before packages are loaded."
   (and (eq 'org-mode major-mode)
        (let ((curr (cw/org-curr-fragment)))
          (cond
-          ;; were on a fragment and now on a new fragment
           ((and
-            ;; fragment we were on
             cw/org-last-fragment
-            ;; and are on a fragment now
             curr
-            ;; but not on the last one this is a little tricky. as you edit the
-            ;; fragment, it is not equal to the last one. We use the begin
-            ;; property which is less likely to change for the comparison.
             (not (equal curr cw/org-last-fragment)))
 
-           ;; go back to last one and put image back, provided there is still a fragment there
            (save-excursion
              (cw/org-preview-fragment cw/org-last-fragment)
-             ;; now remove current image
              (cw/org-remove-fragment-overlay curr)
-             ;; and save new fragment
              )
            (setq cw/org-last-fragment curr))
 
-          ;; were on a fragment and now are not on a fragment
           ((and
-            ;; not on a fragment now
             (not curr)
-            ;; but we were on one
             cw/org-last-fragment)
-           ;; put image back on, provided that there is still a fragment here.
            (save-excursion
              (cw/org-preview-fragment cw/org-last-fragment))
 
-           ;; unset last fragment
-           (setq cw/org-last-fragment nil))
+           (setq cw/org-last-fragment nil)
+           )
 
-          ;; were not on a fragment, and now are
           ((and
             ;; we were not one one
             (not cw/org-last-fragment)
@@ -592,14 +575,16 @@ before packages are loaded."
            (save-excursion
              (cw/org-remove-fragment-overlay curr)
              )
-           (setq cw/org-last-fragment curr))
+           (setq cw/org-last-fragment curr)
+           )
 
-          ))))
-  
-;;; Function to utilize the auto-fragment tool ;;;
-(add-hook
- 'post-command-hook
- 'cw/org-auto-toggle-fragment-display t)
+          )
+         )
+       )
+  );end org-auto-toggle-fragment-display
+
+;; The hook to make the above function work! ;;
+(add-hook 'post-command-hook 'cw/org-auto-toggle-fragment-display t)
 
 )
 ;; Do not write anything past this comment. This is where Emacs will
@@ -614,12 +599,10 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files '("/mnt/c/Users/DougMacDonald/OneDrive - MSCHE/_Profile/Desktop/Syncthing/Dropbox/org"))
- '(org-default-notes-file "/mnt/c/Users/DougMacDonald/OneDrive - MSCHE/_Profile/Desktop/Syncthing/Dropbox/org/notes.org")
- '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (spray zenburn-theme zen-and-art-theme white-sand-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme kaolin-themes jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme eziam-theme exotica-theme espresso-theme dracula-theme doom-themes django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme pdf-tools tablist yasnippet-snippets yapfify xterm-color sql-indent smeargle shell-pop pyvenv pytest pyenv-mode py-isort pippel pipenv pip-requirements orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-brain multi-term mmm-mode markdown-toc markdown-mode magit-svn magit-gitflow live-py-mode importmagic epc concurrent deferred htmlize helm-pydoc helm-org-rifle helm-gitignore helm-git-grep helm-company helm-c-yasnippet gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-org evil-magit magit magit-popup git-commit with-editor ess-R-data-view ctable ess julia-mode eshell-z eshell-prompt-extras esh-help cython-mode company-statistics company-anaconda company auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete ws-butler writeroom-mode visual-fill-column winum volatile-highlights vi-tilde-fringe uuidgen toc-org symon string-inflection spaceline-all-the-icons spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner overseer org-bullets open-junk-file neotree nameless move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-xref helm-themes helm-swoop helm-purpose window-purpose imenu-list helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state iedit evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens smartparens paredit evil-args evil-anzu anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump doom-modeline eldoc-eval shrink-path all-the-icons memoize f dash s define-word counsel-projectile projectile counsel swiper ivy pkg-info epl column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile packed aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup which-key use-package pcre2el org-plus-contrib hydra font-lock+ evil goto-chg undo-tree dotenv-mode diminish bind-map bind-key async))))
+    (string-inflection ox-reveal ess-R-data-view pcre2el yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit symon sql-indent spray spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements persp-mode pdf-tools password-generator paradox ox-gfm overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc indent-guide importmagic impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu ess eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish define-word cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
