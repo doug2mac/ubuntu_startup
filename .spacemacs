@@ -49,7 +49,8 @@ This function should only modify configuration layer settings."
      neotree
      (org :variables
         org-enable-github-support t
-        org-enable-reveal-js-support t)
+        org-enable-reveal-js-support t
+        org-enable-org-journal-support t)
      (shell :variables
         shell-default-height 30
         shell-default-position 'bottom)
@@ -473,9 +474,23 @@ before packages are loaded."
       (setq Org-Reveal-root "file:///media/sf_Desktop/Syncthing/Dropbox/org/reveal.js")
   )
 
+;;; Org agenda files ;;
+(with-eval-after-load 'org
+    (setq org-agenda-files
+          (directory-files-recursively "media/sf_Desktop/Syncthing/Dropbox/org" "\\.org$"))
+  )
+  
 ;;; Use visual lines for orgmode ;;;
 (add-hook 'org-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
 
+ ;;;; Modify org bullets ;;;
+(setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
+
+;;; Org-journal edits ;;;
+(setq org-journal-dir "/media/sf_Desktop/Syncthing/Dropbox/org/journal")
+(setq org-journal-time-prefix "** ")
+(setq org-journal-time-format "")
+  
 ;;; Rainbow Delimiters at Start ;;;
 (rainbow-delimiters-mode 1)
 
