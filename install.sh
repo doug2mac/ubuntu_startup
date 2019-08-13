@@ -37,10 +37,9 @@ sudo add-apt-repository ppa:marutter/rrutter3.5
 sudo apt-get install -y r-base
 sudo apt-get install -y gdebi-core
 
-# download and install emacs + spacemacs
-
 # download and install emacs
 sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt-get install -y emacs26
 
 # clone the spacemacs repo
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -75,8 +74,9 @@ source ~/.bashrc
 git clone https://github.com/powerline/fonts
 
 # install fonts
-mkfontscale /mnt/c/Users/DougMacDonald/fonts
-mkfontscale -b -s -l /mnt/c/Users/DougMacDonald/fonts
+mkdir ~/Fonts
+mkfontscale ~/Fonts
+mkfontscale -b -s -l ~/Fonts
  
 # install sqlserver odbc and drivers
 sudo su 
