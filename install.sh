@@ -58,7 +58,7 @@ sudo apt-get -y install texlive-fonts-recommended
 sudo apt-get -y install texlive-fonts-extra
 
 # set-up powerline fonts
-pip install powerline-shell
+# pip install powerline-shell
 
 ## BASHRC ###
 # version the old
@@ -104,4 +104,4 @@ sudo apt install mysql-server
 sudo mysql_secure_installation
 
 # install airflow
-pip install 'apache-airflow[all]'
+# pip install 'apache-airflow[all]'
