@@ -57,16 +57,6 @@ sudo apt-get -y install texlive-latex-base
 sudo apt-get -y install texlive-fonts-recommended
 sudo apt-get -y install texlive-fonts-extra
 
-# set-up powerline fonts
-# pip install powerline-shell
-
-## BASHRC ###
-# version the old
-mv .bashrc .bak_bashrc
-
-# grab my .bashrc file
-wget https://raw.githubusercontent.com/doug2mac/wsl/master/.bashrc
-
 # source for changes
 source ~/.bashrc
 
@@ -102,6 +92,3 @@ sudo apt-get install unixodbc-dev
 # install mysql
 sudo apt install mysql-server
 sudo mysql_secure_installation
-
-# install airflow
-# pip install 'apache-airflow[all]'
