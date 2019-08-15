@@ -1,67 +1,94 @@
-# this is an install script for an Ubuntu 18.04 Server
-# the framework is several docker containers for various applications
-# with some key editing software for troubleshooting
-## Editing Software ##
-# 1. Vim
-# 2. Emacs + Spacemacs
-## Applications ##
-# 1. Jupyter Lab
-# 2. Rstudio-Server
-# 3. Shiny-Server
+# core packages
+sudo apt-get -y install htop
+sudo apt-get -y install git-core
+sudo apt-get -y install curl
+sudo apt-get -y install vim
+sudo apt-get -y install dvipng
+sudo apt-get -y install markdown
+sudo apt-get -y install pandoc
+sudo apt-get -y install unoconv
+sudo apt-get -y install hspell
+sudo apt-get -y install ispell
 
-# ensure that our ubuntu instance is up to date
-sudo apt-get update
-sudo apt-get upgrade
+# for fonts
+sudo apt -y install xfonts-utils
 
-# install git
-sudo apt-get install git-core
+# install some dependencies for devtools
+sudo apt-get -y build-dep libcurl4-gnutls-dev
+sudo apt-get -y install libcurl4-gnutls-dev
+sudo apt-get install -y gdebi-core
 
-# install curl
-sudo apt-get install curl
+# packages for R
+sudo apt-get -y install build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
 
-# install vim
-sudo apt install vim
+# make a downloads folder
+mkdir Downloads
+cd Downloads
+wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
+
+# run the install script
+bash Anaconda3-2019.07-Linux-x86_64.sh
+
+# source the bashrc to be able to run conda
+source ~/.bashrc
+
+# add the needed repository
+sudo add-apt-repository ppa:marutter/rrutter3.5
+sudo apt-get install -y r-base
+sudo apt-get install -y gdebi-core
 
 # download and install emacs
 sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt-get install -y emacs26
 
-sudo apt update
-
-sudo apt install emacs25
-
-# remove the included version of org-mode in spacemacs since it breaks spacemacs
-sudo rm -rf /usr/share/emacs/25.3/lisp/org/*
-
-# clone spacemacs into .emacs.d
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-# remove the included version of org-mode in spacemacs since it breaks spacemacs
-sudo rm -rf /usr/share/emacs/25.3/lisp/org/*
-
-# clone spacemacs into .emacs.d
+# clone the spacemacs repo
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # use the develop branch instead of the master branch
 cd ~/.emacs.d
 git checkout -b develop origin/develop
 
-### DOCKER ###
-# install pre-requisites
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+# pull my .spacemacs config file
+cd ~
+wget https://raw.githubusercontent.com/doug2mac/wsl/master/.spacemacs
 
-# add the GPG key for the official Docker respository to your system
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# install pdf-latex
+sudo apt-get -y install texlive-latex-base
+sudo apt-get -y install texlive-fonts-recommended
+sudo apt-get -y install texlive-fonts-extra
 
-# Add the Docker repository to APT sources:
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+# source for changes
+source ~/.bashrc
 
-# update the package database with the Docker packages from the newly added repo
-sudo apt update
+# download
+git clone https://github.com/powerline/fonts
 
-# Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
-apt-cache policy docker-ce
+# install fonts
+mkdir ~/Fonts
+mkfontscale ~/Fonts
+mkfontscale -b -s -l ~/Fonts
+ 
+# install sqlserver odbc and drivers
+sudo su 
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 
-# Install docker
-sudo apt install docker-ce
+#Ubuntu 18.04
+curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
+#Ubuntu 18.10
+# curl https://packages.microsoft.com/config/ubuntu/18.10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+ 
+exit
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install msodbcsql17
+# optional: for bcp and sqlcmd
+sudo ACCEPT_EULA=Y apt-get install mssql-tools
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+source ~/.bashrc
+# optional: for unixODBC development headers
+sudo apt-get install unixodbc-dev
 
+# install mysql
+sudo apt install mysql-server
+sudo mysql_secure_installation
