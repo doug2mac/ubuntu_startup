@@ -50,7 +50,7 @@ git checkout -b develop origin/develop
 
 # pull my .spacemacs config file
 cd ~
-wget https://raw.githubusercontent.com/doug2mac/wsl/master/.spacemacs
+wget https://raw.githubusercontent.com/doug2mac/ubuntu_startup/master/.spacemacs_server
 
 # install pdf-latex
 sudo apt-get -y install texlive-latex-base
